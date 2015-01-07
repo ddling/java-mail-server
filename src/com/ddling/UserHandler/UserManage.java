@@ -15,9 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.ddling.usermanage;
+package com.ddling.UserHandler;
 
-import com.ddling.dbmanage.DBManage;
+import com.ddling.DBHandler.DBManage;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,7 +1,7 @@
 package com.ddling.server.pop3.state;
 
 import com.ddling.server.pop3.POP3ServerThread;
-import com.ddling.usermanage.UserManage;
+import com.ddling.UserHandler.UserManage;
 
 /**
  * Created by lingdongdong on 15/1/3.

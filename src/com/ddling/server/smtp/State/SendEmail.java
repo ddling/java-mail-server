@@ -17,7 +17,7 @@
 
 package com.ddling.server.smtp.State;
 
-import com.ddling.mailmanage.MailManage;
+import com.ddling.MailHandler.MailManage;
 import com.ddling.server.smtp.SMTPService;
 import com.ddling.server.smtp.SMTPThread;
 

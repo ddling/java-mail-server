@@ -1,6 +1,6 @@
 package com.ddling.server.pop3.state;
 
-import com.ddling.mailmanage.MailManage;
+import com.ddling.MailHandler.MailManage;
 import com.ddling.server.pop3.POP3ServerThread;
 
 import java.util.ArrayList;

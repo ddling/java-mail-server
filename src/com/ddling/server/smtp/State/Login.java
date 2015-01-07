@@ -18,7 +18,7 @@
 package com.ddling.server.smtp.State;
 
 import com.ddling.server.smtp.SMTPThread;
-import com.ddling.usermanage.UserManage;
+import com.ddling.UserHandler.UserManage;
 import com.ddling.utils.MyBase64;
 
 /**

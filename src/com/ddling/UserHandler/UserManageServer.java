@@ -1,4 +1,4 @@
-package com.ddling.usermanage;
+package com.ddling.UserHandler;
 
 import com.ddling.utils.LoggerFactory;
 import org.apache.log4j.Logger;

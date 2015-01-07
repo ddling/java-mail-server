@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.ddling.mailmanage;
+package com.ddling.MailHandler;
 
 /**
  * Created by lingdongdong on 14/12/29.

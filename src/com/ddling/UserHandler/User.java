@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.ddling.usermanage;
+package com.ddling.UserHandler;
 
 /**
  * Created by lingdongdong on 14/12/25.

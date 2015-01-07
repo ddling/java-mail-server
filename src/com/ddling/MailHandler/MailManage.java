@@ -15,10 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.ddling.mailmanage;
+package com.ddling.MailHandler;
 
-import com.ddling.dbmanage.DBManage;
-import com.ddling.server.smtp.State.SendEmail;
+import com.ddling.DBHandler.DBManage;
 import com.ddling.utils.Constants;
 import com.ddling.utils.LoggerFactory;
 

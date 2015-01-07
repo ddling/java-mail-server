@@ -17,9 +17,8 @@
 
 package com.ddling.server.smtp;
 
-import com.ddling.mailmanage.Mail;
+import com.ddling.MailHandler.Mail;
 import com.ddling.server.smtp.mx.MXExchange;
-import com.ddling.utils.Constants;
 import com.ddling.utils.LoggerFactory;
 import org.apache.log4j.Logger;
 

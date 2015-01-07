@@ -1,8 +1,7 @@
 package com.ddling.server.smtp;
 
-import com.ddling.mailmanage.Mail;
-import com.ddling.mailmanage.MailManage;
-import com.ddling.utils.Constants;
+import com.ddling.MailHandler.Mail;
+import com.ddling.MailHandler.MailManage;
 
 import java.util.Queue;
 

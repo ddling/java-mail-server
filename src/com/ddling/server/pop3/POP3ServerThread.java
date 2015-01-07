@@ -1,6 +1,6 @@
 package com.ddling.server.pop3;
 
-import com.ddling.usermanage.User;
+import com.ddling.UserHandler.User;
 import com.ddling.utils.LoggerFactory;
 import org.apache.log4j.Logger;
 
