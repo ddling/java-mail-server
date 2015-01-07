@@ -21,6 +21,7 @@ import com.ddling.DBHandler.DBManage;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,22 +31,35 @@ import java.util.List;
  */
 public class UserManage {
 
+    private static UserManage userManageInstance = null;
+    private DBManage dbManageInstance = null;
+
+    /**
+     * 得到用户管理类的实例
+     * @return 用户管理类的实例
+     */
+    public static UserManage getUserManageInstance() {
+
+        if (userManageInstance == null) {
+            userManageInstance = new UserManage();
+        }
+        return userManageInstance;
+    }
+
     /**
      * 得到数据库中的用户列表，返回用户列表
      * @return  用户列表
      * @throws java.sql.SQLException
      */
-    public List<User> getUsers() throws SQLException {
+    public ArrayList<User> getUsers() throws SQLException {
 
-        DBManage dbManage = DBManage.getDbManageInstance();
-        List<User> userList = new LinkedList<User>();
+        ArrayList<User> userList = new ArrayList<User>();
         String sql = "SELECT * FROM USER;";
-        ResultSet resultSet = dbManage.executeQuery(sql);
+        ResultSet resultSet = dbManageInstance.executeQuery(sql);
         while (resultSet.next()) {
             String username = resultSet.getString("username");
             String password = resultSet.getString("password");
-            User newUser = new User(username, password);
-            userList.add(newUser);
+            userList.add(new User(username, password));
         }
 
         return userList;
@@ -57,8 +71,6 @@ public class UserManage {
      */
     public void insertNewUser(User newUser) {
 
-        DBManage dbManage = DBManage.getDbManageInstance();
-
         String username = newUser.getUsername();
         String password = newUser.getPassword();
         long date = new Date().getTime();
@@ -68,7 +80,7 @@ public class UserManage {
                                    "NULL, '%s', '%s', '%s')",
                                    username, password, registerTime);
 
-        dbManage.executeUpdate(sql);
+        dbManageInstance.executeUpdate(sql);
     }
 
     /**
@@ -80,11 +92,9 @@ public class UserManage {
 
         boolean hasThisUser = false;
 
-        DBManage dbManage = DBManage.getDbManageInstance();
-
         String sql = String.format("SELECT * FROM USER WHERE username == '%s'", username);
 
-        ResultSet resultSet = dbManage.executeQuery(sql);
+        ResultSet resultSet = dbManageInstance.executeQuery(sql);
 
         try {
             if (resultSet.next()) {
@@ -103,11 +113,9 @@ public class UserManage {
      */
     public void deleteUser(String username) {
 
-        DBManage dbManage = DBManage.getDbManageInstance();
-
         String sql = String.format("DELETE FROM USER WHERE username = '%s'", username);
 
-        dbManage.executeUpdate(sql);
+        dbManageInstance.executeUpdate(sql);
 
     }
 
@@ -124,8 +132,7 @@ public class UserManage {
         String sql = String.format(
                 "SELECT * FROM USER WHERE username = '%s' AND password = '%s'", username, password);
 
-        DBManage dbManage = DBManage.getDbManageInstance();
-        ResultSet resultSet = dbManage.executeQuery(sql);
+        ResultSet resultSet = dbManageInstance.executeQuery(sql);
 
         try {
             if (resultSet.next()) {
@@ -136,10 +143,5 @@ public class UserManage {
         }
 
         return authUserOK;
-    }
-
-    public static void main(String[] args) {
-        UserManage userManage = new UserManage();
-        userManage.insertNewUser(new User("ddd", "xxx"));
     }
 }
