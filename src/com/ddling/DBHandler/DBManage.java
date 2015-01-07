@@ -65,9 +65,9 @@ public class DBManage {
             connection = DriverManager.getConnection("jdbc:sqlite:" + Constants.DB_FILE_NAME);
             connection.setAutoCommit(false);
         } catch (ClassNotFoundException e) {
-            logger.error("org.sqlite.JDBC class Not Found!");
+            logger.error(e);
         } catch (SQLException e) {
-            logger.error("sqlite connection fail!");
+            logger.error(e);
         }
 
         logger.info("open db successfully!");
@@ -86,7 +86,7 @@ public class DBManage {
             resultSet = statement.executeQuery(sql);
 
         } catch (SQLException e) {
-            logger.error("Create Query Statement fail!");
+            logger.error(e);
         }
 
         return resultSet;
@@ -108,7 +108,7 @@ public class DBManage {
 
             } catch (SQLException e) {
                 e.printStackTrace();
-                logger.error("Create Update Statement sql fail!");
+                logger.error(e);
             }
 
             this.close();
