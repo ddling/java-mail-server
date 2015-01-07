@@ -97,7 +97,7 @@ public class UserManage {
 
         boolean hasThisUser = false;
 
-        String sql = String.format("SELECT * FROM USER WHERE username == '%s'", username);
+        String sql = String.format("SELECT * FROM USER WHERE username = '%s'", username);
 
         ResultSet resultSet = dbManageInstance.executeQuery(sql);
 
