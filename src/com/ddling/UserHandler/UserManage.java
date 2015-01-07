@@ -21,6 +21,7 @@ import com.ddling.DBHandler.DBManage;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -28,11 +29,12 @@ import java.util.List;
 
 /**
  * Created by lingdongdong on 14/12/26.
+ * 用户管理类，负责用户的创建、删除、认证等！
  */
 public class UserManage {
 
     private static UserManage userManageInstance = null;
-    private DBManage dbManageInstance = null;
+    private static DBManage dbManageInstance = null;
 
     /**
      * 得到用户管理类的实例
@@ -42,6 +44,7 @@ public class UserManage {
 
         if (userManageInstance == null) {
             userManageInstance = new UserManage();
+            dbManageInstance = DBManage.getDbManageInstance();
         }
         return userManageInstance;
     }
@@ -73,8 +76,10 @@ public class UserManage {
 
         String username = newUser.getUsername();
         String password = newUser.getPassword();
-        long date = new Date().getTime();
-        String registerTime = date + "";
+
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm");
+        String registerTime = simpleDateFormat.format(date);
 
         String sql = String.format("INSERT INTO USER VALUES (" +
                                    "NULL, '%s', '%s', '%s')",
